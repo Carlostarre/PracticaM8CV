@@ -1,11 +1,20 @@
 <?php
 header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: *");  // Permitir solicitudes desde cualquier origen
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
+// Si la solicitud es de tipo OPTIONS (preflight request), responder inmediatamente
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    http_response_code(200);
+    exit;
+}
 
 function connectDB() {
     $host = 'localhost';
-    $user = 'root'; // Usuario por defecto en XAMPP
-    $password = '12345'; // Contraseña por defecto en XAMPP
-    $dbname = 'cv'; // Nombre de la base de datos
+    $user = 'root';
+    $password = '12345';
+    $dbname = 'cv';
     $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
     try {
         $pdo = new PDO($dsn, $user, $password, [
@@ -31,21 +40,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         http_response_code(500);
         echo json_encode(["error" => "Error al obtener los datos: " . $e->getMessage()]);
     }
-} elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    try {
-        $pdo = connectDB();
-        $data = json_decode(file_get_contents("php://input"), true);
-        $stmt = $pdo->prepare("UPDATE cv_info SET name = :name, profession = :profession, experience = :experience, email = :email WHERE id = 1");
-        $stmt->execute([
-            ':name' => $data['name'],
-            ':profession' => $data['profession'],
-            ':experience' => $data['experience'],
-            ':email' => $data['email']
-        ]);
-        echo json_encode(["success" => true]);
-    } catch (Exception $e) {
-        http_response_code(500);
-        echo json_encode(["error" => "Error al actualizar los datos: " . $e->getMessage()]);
-    }
-}
+} 
 ?>

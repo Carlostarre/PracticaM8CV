@@ -1,0 +1,95 @@
+/* General container styling */
+.cv-form-container {
+    max-width: 40rem;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+  }
+  
+  /* Form title */
+  .cv-form-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #333333;
+    text-align: center;
+  }
+  
+  /* Labels */
+  .cv-form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Input fields */
+  .cv-form-input,
+  .cv-form-textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    color: #4a5568;
+    background-color: #f9fafb;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    margin-top: 0.25rem;
+    transition: all 0.3s ease;
+  }
+  
+  /* Input focus state */
+  .cv-form-input:focus,
+  .cv-form-textarea:focus {
+    border-color: #6366f1;
+    background-color: #ffffff;
+    box-shadow: 0 0 8px rgba(99, 102, 241, 0.3);
+    outline: none;
+  }
+  
+  /* Hover state for inputs */
+  .cv-form-input:hover,
+  .cv-form-textarea:hover {
+    background-color: #f3f4f6;
+  }
+  
+  /* Submit button */
+  .cv-form-button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    color: #ffffff;
+    background-color: #6366f1;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(99, 102, 241, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .cv-form-button:hover {
+    background-color: #4f46e5;
+    box-shadow: 0 6px 8px rgba(79, 70, 229, 0.3);
+  }
+  
+  /* Error state for inputs */
+  .cv-form-input:invalid {
+    border-color: #f87171;
+  }
+  
+  .cv-form-input:invalid:focus {
+    box-shadow: 0 0 8px rgba(248, 113, 113, 0.3);
+  }
+  
+  /* Spacing between input groups */
+  .cv-form-group {
+    margin-bottom: 1.5rem;
+  }
+  
