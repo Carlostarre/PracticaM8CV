@@ -2,6 +2,8 @@ import React from 'react';
 import jsPDF from "jspdf";
 import "jspdf-autotable";
 
+//HOLA TETE
+
 function CVPreview({ cvData }) {
 
     // Verifica que cvData tenga los datos correctos
